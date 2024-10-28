@@ -25,5 +25,5 @@ export const routes: Routes = [
         ]
     },
     { path: 'not-authorized', component: NotAuthorizedComponent, data: { type: 'not-authorized' } },
-    { path: 'not-found', component: NotAuthorizedComponent, data: { type: 'not-found' } },
+    { path: '**', component: NotAuthorizedComponent, data: { type: 'not-found' } },
 ];
