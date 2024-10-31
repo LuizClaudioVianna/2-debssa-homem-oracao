@@ -8,6 +8,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { authGuard } from './guards/auth.guard';
 import { scopesGuard } from './guards/scopes.guard';
 import { authWithScopes } from './guards/auth-with-scopes';
+import { generalInfosResolvers } from './resolvers/general-infos-resolvers';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,12 +17,18 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authWithScopes('dashboard')],
-        canActivateChild:[authGuard()],
+        canActivateChild: [authGuard()],
         children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },
-            { path: 'general', component: GeneralComponent },
-            { path: 'payments', component: PaymentsComponent},
-            { path: 'admin', component: AdminComponent},
+            {
+                path: 'general',
+                component: GeneralComponent,
+                resolve: {
+                    generalInfos: generalInfosResolvers
+                }
+            },
+            { path: 'payments', component: PaymentsComponent },
+            { path: 'admin', component: AdminComponent },
         ]
     },
     { path: 'not-authorized', component: NotAuthorizedComponent, data: { type: 'not-authorized' } },

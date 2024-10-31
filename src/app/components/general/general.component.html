@@ -1,22 +1,24 @@
 <div class="general">
+    @if (data$ | async; as data) {
     <div class="general__row">
         <div class="general__card">
-            <p class="poppins-regular">Incidentes no Dia:</p>
-            <p class="poppins-semibold">0</p>
+            <p class="poppins-regular">Quantidade de Roles:</p>
+            <p class="poppins-semibold">{{data['generalInfos'].roles.quantidade}}</p>
         </div>
         <div class="general__card">
-            <p class="poppins-regular">Pagamentos Pendentes:</p>
-            <p class="poppins-semibold">3</p>
+            <p class="poppins-regular">Quantidade de Usuários:</p>
+            <p class="poppins-semibold">{{data['generalInfos'].users.quantidade}}</p>
         </div>
     </div>
     <div class="general__row">
         <div class="general__card">
             <p class="poppins-regular">Contas Criadas:</p>
-            <p class="poppins-semibold">+ 100/dia</p>
+            <p class="poppins-semibold">+ 100000/dia</p>
         </div>
         <div class="general__card">
             <p class="poppins-regular">Usuários Ativos:</p>
             <p class="poppins-semibold">10.000</p>
         </div>
     </div>
+    }
 </div>
