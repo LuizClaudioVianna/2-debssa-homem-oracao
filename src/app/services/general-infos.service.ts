@@ -17,4 +17,9 @@ export class GeneralInfosService {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access-token'));
         return this._httpClient.get<{ quantidade: number }>('https://localhost:7182/api/User/GetQuantityUsers', { headers });
     }
+
+    getClients(): Observable<{ quantidade: number }> {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access-token'));
+        return this._httpClient.get<{ quantidade: number }>('https://localhost:7182/api/Cliente/GetQuantityClients', { headers });
+    }
 }

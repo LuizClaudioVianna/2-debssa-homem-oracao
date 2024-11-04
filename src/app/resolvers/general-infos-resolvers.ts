@@ -8,11 +8,13 @@ export const generalInfosResolvers: ResolveFn<any> = () => {
 
     return Promise.all([
         firstValueFrom(generalInfosService.getRoles()),
-        firstValueFrom(generalInfosService.getUsers())
-    ]).then(([roles,users]) => {
+        firstValueFrom(generalInfosService.getUsers()),
+        firstValueFrom(generalInfosService.getClients())
+    ]).then(([roles,users,clients]) => {
         return {
             roles,
-            users
+            users,
+            clients
         }
     });
 }
