@@ -9,6 +9,7 @@ import { authGuard } from './guards/auth.guard';
 import { scopesGuard } from './guards/scopes.guard';
 import { authWithScopes } from './guards/auth-with-scopes';
 import { generalInfosResolvers } from './resolvers/general-infos-resolvers';
+import { logoutGuard } from './guards/logout.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authWithScopes('dashboard')],
+        canDeactivate: [logoutGuard()],
         canActivateChild: [authGuard()],
         children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },
@@ -28,9 +30,10 @@ export const routes: Routes = [
                 }
             },
             { path: 'payments', component: PaymentsComponent },
-            { path: 'admin', component: AdminComponent },
+            { path: 'admin', component: AdminComponent, canActivate:[scopesGuard('admin')] },
         ]
     },
+    
     { path: 'not-authorized', component: NotAuthorizedComponent, data: { type: 'not-authorized' } },
     { path: '**', component: NotAuthorizedComponent, data: { type: 'not-found' } },
 ];
