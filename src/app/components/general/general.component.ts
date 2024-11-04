@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './general.component.html',
   styleUrl: './general.component.scss'
 })
 export class GeneralComponent {
+  data$: Observable<Data> = of({});
+  private readonly _activatedRoute = inject(ActivatedRoute);
 
+
+  ngOnInit() {
+    this.data$ = this._activatedRoute.data;
+  }
 }

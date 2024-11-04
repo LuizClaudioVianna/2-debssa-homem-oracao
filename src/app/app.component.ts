@@ -10,20 +10,20 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = '';
+  title = 'DEBSSA Soluções em sistemas';
   private readonly _authService = inject(AuthService)
 
 
-  scope() {
-    throw new Error('Method not implemented.');
-  }
+  // scope() {
+  //   throw new Error('Method not implemented.');
+  // }
 
-  verify() {
-    throw new Error('Method not implemented.');
-  }
-  login() {
-    this._authService.login('lcavianna@hotmail.com','Lc011097av$').subscribe(response => {
-        console.log('Response Login', response);
-    });
-  }
+  // verify() {
+  //   throw new Error('Method not implemented.');
+  // }
+  // login() {
+  //   this._authService.login('lcavianna@hotmail.com','Lc011097av$').subscribe(response => {
+  //       console.log('Response Login', response);
+  //   });
+  // }
 }

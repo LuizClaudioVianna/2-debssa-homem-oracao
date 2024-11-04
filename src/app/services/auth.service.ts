@@ -10,8 +10,8 @@ export class AuthService {
     private readonly _httpClient = inject(HttpClient);
 
     login(email: string, password: string): Observable<{ token: string; }> {
-        //const dominioUsuario: string = 'HomemOracao';
-        const dominioUsuario: string = 'CursoAngular';
+        const dominioUsuario: string = 'HomemOracao';
+        //const dominioUsuario: string = 'CursoAngular';
         return this._httpClient.post<{ token: string; }>('https://localhost:7182/api/account', { email, password, dominioUsuario }).pipe(
             map(resp => {
                 localStorage.setItem('access-token', resp.token);
@@ -38,5 +38,9 @@ export class AuthService {
 
         return array;
         //return decoded.scopes;
+    }
+
+    logout(){
+        localStorage.removeItem('access-token');
     }
 }
