@@ -24,8 +24,7 @@
                 }
                 }
             </div>
-
-            <button class="poppins-regular login__button">Entrar</button>
+            <app-button [text]="'Entrar'" [color]="'blue'" [disabled]="false" (clicked)="onLogin()"></app-button>
         </form>
     </div>
 </div>

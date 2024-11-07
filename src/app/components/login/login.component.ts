@@ -3,10 +3,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+import { ButtonComponent } from '../baseComponents/button/button.component';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -42,4 +44,9 @@ export class LoginComponent {
     })
 
   }
+
+  EntrarSistema(){
+    console.log('botão clicado no componente filho e recebido no component PAI');
+  }
+
 }
