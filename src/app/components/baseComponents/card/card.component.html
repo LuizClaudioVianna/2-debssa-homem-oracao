@@ -1,0 +1,7 @@
+<div class="card" [class]="{
+    'card--orange':cardColor === 'orange'? true:false,
+    'card--purple':cardColor === 'purple'? true:false,
+}">
+    <div class="card__plan card__item"><b>{{cardText}}</b></div>
+    <div class="card__price card__item">{{cardQuantity}}</div>
+</div>

@@ -1,24 +1,14 @@
-<div class="general">
+<div class="cards--containers">
     @if (data$ | async; as data) {
     <div class="general__row">
-        <div class="general__card">
-            <p class="poppins-regular">Quantidade de Roles:</p>
-            <p class="poppins-semibold">{{data['generalInfos'].roles.quantidade}}</p>
-        </div>
-        <div class="general__card">
-            <p class="poppins-regular">Quantidade de Usuários:</p>
-            <p class="poppins-semibold">{{data['generalInfos'].users.quantidade}}</p>
-        </div>
+        <app-card [cardText]="'Quantidade de Roles:'" [cardQuantity]="data['generalInfos'].roles.quantidade" [cardColor]="'orange'"></app-card>
+        <app-card [cardText]="'Quantidade de Usuários'" [cardQuantity]="data['generalInfos'].users.quantidade" [cardColor]="'purple'"></app-card>
+
     </div>
     <div class="general__row">
-        <div class="general__card">
-            <p class="poppins-regular">Quantidade de clientes:</p>
-            <p class="poppins-semibold">{{data['generalInfos'].clients.quantidade}}</p>
-        </div>
-        <div class="general__card">
-            <p class="poppins-regular">Usuários Ativos:</p>
-            <p class="poppins-semibold">10.000</p>
-        </div>
+        <app-card [cardText]="'Quantidade de clientes:'" [cardQuantity]="data['generalInfos'].clients.quantidade" [cardColor]="'orange'"></app-card>
+        <app-card [cardText]="'Usuários Ativos:'" [cardQuantity]="data['generalInfos'].users.quantidade" [cardColor]="'purple'"></app-card>
     </div>
+
     }
 </div>
